@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="apple-touch-icon" sizes="192x192" href="../favicon/2/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/2/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/2/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/2/favicon-16x16.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-32x32.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-48x48.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/theme-detect.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/update-detect.js"></script>
+</head>
+<style>
+    .setting-main-content {
+        flex: 1;
+        max-width: 800px;
+        padding: 15px;
+    }
+
+
+</style>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="app-header">
+            <div class="header-left">
+                <img src="../img/title-white.png" alt="NexoraTV" class="logo" draggable="false">
+            </div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="setting-main-content">
+            <section class="settings-section">
+
+
+                <div class="settings-group">
+                    <h2 class="settings-title">界面设置</h2>
+                    <div class="setting-item">
+                        <label>深色模式</label>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>字体大小</label>
+                        <select class="font-select">
+                            <option value="small">小</option>
+                            <option value="medium" selected>中</option>
+                            <option value="large">大</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 更新检测区域 -->
+                <div id="update-section"></div>
+
+                <div class="settings-group">
+                    <h2 class="settings-title">用户协议</h2>
+                    <div class="setting-item clickable" onclick="showModal('privacy')">
+                        <label>隐私声明</label>
+                        <span class="setting-value">></span>
+                    </div>
+                    <div class="setting-item clickable" onclick="showModal('disclaimer')">
+                        <label>免责条款</label>
+                        <span class="setting-value">></span>
+                    </div>
+                    <div class="setting-item clickable" onclick="showModal('usage')">
+                        <label>使用说明</label>
+                        <span class="setting-value">></span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h2 class="settings-title">关于</h2>
+                    <div class="setting-item">
+                        <label>版本</label>
+                        <span class="setting-value">1.1.0</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>发行日期</label>
+                        <span class="setting-value">2025 / 5 / 6</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>官网</label>
+                        <button class="setting-button" onclick="window.open('https://www.trailw.com/page/NexoraTV/', '_blank')">点击前往</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>开发者</label>
+                        <span class="setting-value">Trailw</span>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- 模态框 -->
+        <div id="privacyModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('privacy')">&times;</span>
+                <h2>隐私政策</h2>
+                <div class="modal-body">
+                    <p>     &emsp;&emsp; NexoraTV 高度重视用户的隐私保护，始终将用户隐私安全置于首位，制定并严格执行本隐私政策，旨在让您清晰了解在使用本 APP 过程中，我们对用户信息的处理原则与方式。​
+                        <br>&emsp;&emsp; NexoraTV 不提供用户注册和用户登录功能，这意味着我们不会收集任何与用户身份相关的注册信息，如姓名、手机号码、电子邮箱、身份证号码等。同时，本平台也不提供储存视频播放记录功能，不会记录用户的观看历史、搜索记录等行为数据，因此不存在利用这些数据进行用户画像分析或商业营销的情况。​
+                        <br>&emsp;&emsp; 在您使用 NexoraTV 的过程中，我们不会主动存储或追踪用户信息。所有视频检索与播放功能均基于第三方接口实现，我们不参与、不干涉第三方接口对数据的处理，也无法获取第三方接口可能收集的任何用户数据。​
+                        <br>&emsp;&emsp; 我们严格遵守国家相关法律法规关于用户隐私保护的规定，承诺不会向任何第三方披露、出售、共享用户信息。除法律明确要求或经用户明确授权外，NexoraTV 不会将用户信息用于任何其他目的。​
+                        <br>&emsp;&emsp; 我们深知隐私保护是建立用户信任的基础，将持续优化隐私保护措施，不断提升数据安全防护水平。若您对本隐私政策存在任何疑问、意见或建议，欢迎通过官方渠道与我们联系，我们将及时为您解答和处理。​
+                        <br>&emsp;&emsp; NexoraTV 将一如既往地秉持尊重用户隐私的原则，在为您提供便捷视频搜索与播放服务的同时，全力保障您的隐私安全，为您营造安全、可靠、放心的使用环境。​
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="disclaimerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('disclaimer')">&times;</span>
+                <h2>免责条款</h2>
+                <div class="modal-body">
+                    <p>     &emsp;&emsp; 欢迎使用 NexoraTV 影视 APP！在使用本平台服务前，请您务必仔细阅读以下免责声明，该声明对您使用平台服务过程中的权利义务进行明确界定。​
+                        <br>&emsp;&emsp; NexoraTV 平台仅作为在线视频搜索与播放服务的提供者，其核心功能为互联网视频源检索。平台本身不存储、上传或分发任何视频内容，所有视频数据均由第三方 API 接口提供。正因如此，我们无法控制视频的播放内容、准确性、完整性、合法性以及安全性。对于第三方提供的视频内容中存在的侵权、低俗、暴力、虚假等违法违规或不当信息，NexoraTV 不承担任何法律责任。若您在观看过程中发现此类内容，应立即停止观看，并自行联系相关第三方内容提供方进行投诉、处理。​
+                        <br>&emsp;&emsp; 由于视频播放依赖第三方接口，若出现视频无法播放、卡顿、中断、画质模糊等问题，或因第三方接口故障、调整、关停等原因导致服务异常，NexoraTV 不承担任何赔偿或补救责任。同时，平台页面可能包含指向第三方网站或服务的链接，这些链接仅为方便用户访问，NexoraTV 无法对链接指向的网站或服务的内容、安全性、隐私政策等进行控制，也不承担任何责任。用户在点击相关链接时，需自行承担风险，并确保自身合法权益不受侵害。​
+                        <br>&emsp;&emsp; 此外，本软件仅面向 18 岁以上人群提供服务。我们要求使用者具备合理辨别不当内容的能力，在使用过程中自觉遵守法律法规及社会公德。若因用户违反使用规定或因使用第三方视频内容而产生的任何法律纠纷、损失或责任，均由用户自行承担，NexoraTV 不承担任何连带责任。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="usageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('usage')">&times;</span>
+                <h2>使用说明</h2>
+                <div class="modal-body">
+                    <p>    
+                        1、如果搜索页面出现 “Failed to Fetch” 等字样，说明当前视频源不可用，请您切换为其他视频源。​
+                    <br>2、软件没有 “用户注册”、“用户登录” 等功能，因此无法保存用户信息以及无法储存视频播放记录。​
+                    <br>3、如果遇到图片资源无法加载的情况，可将网络环境从 WLAN 切换至 蜂窝流量。
+                    <br>4、点击搜索页面的 ⚙️ 图标，可以打开视频播放源的设置界面，如发现当前视频源播放卡顿等情况，可自行切换为其他，或者可以自行添加第三方视频源的URL.
+                    <br>5、如果发现搜索速度较慢，可将视频源从 “聚合搜索” 切换为其他视频源。
+                    <br>6、本软件的视频影音均来源于互联网第三方接口实现，因此无法保证视频的播放内容、准确性、完整性、合法性以及安全性，使用本软件需自行甄别。
+                    <br>7、使用本软件务必确认与同意 NexoraTV 的 《隐私政策》与《免责条款》。
+                    <br>8、如果您在使用过程中遇到任何问题，请通过官方渠道 trailw.com 联系我们。​​
+                </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边导航 -->
+        <nav class="side-nav">
+            <a href="index.html" class="nav-item">
+                <img src="icons/home.svg" alt="首页" class="nav-icon">
+                <span>首页</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <img src="icons/search.svg" alt="搜索" class="nav-icon">
+                <span>搜索</span>
+            </a>
+            <a href="category.html" class="nav-item">
+                <img src="icons/list.svg" alt="分类" class="nav-icon">
+                <span>分类</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <img src="icons/cog.svg" alt="设置" class="nav-icon">
+                <span>设置</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

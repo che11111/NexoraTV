@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<tvshow>
+  <plot>138亿年前宇宙的故事有了开端，仅银河系就有数千颗恒星，而我们生活的太阳系行星渺小如尘埃，不为人知的行星故事在过去40亿年中华丽上演。随着人类观测技术的不断进步，宇宙飞船带领我们探索各个行星，此部纪录片用独特的拟人化手法解构八大行星的故事，并结合最先进的科技视觉化呈现。</plot>
+  <outline>138亿年前宇宙的故事有了开端，仅银河系就有数千颗恒星，而我们生活的太阳系行星渺小如尘埃，不为人知的行星故事在过去40亿年中华丽上演。随着人类观测技术的不断进步，宇宙飞船带领我们探索各个行星，此部纪录片用独特的拟人化手法解构八大行星的故事，并结合最先进的科技视觉化呈现。</outline>
+  <lockdata>false</lockdata>
+  <dateadded>2024-07-10 18:13:59</dateadded>
+  <title>行星</title>
+  <originaltitle>The Planets</originaltitle>
+  <rating>8.3</rating>
+  <year>2019</year>
+  <mpaa>TV-PG</mpaa>
+  <imdb_id>tt10394800</imdb_id>
+  <tmdbid>89667</tmdbid>
+  <premiered>2019-05-28</premiered>
+  <releasedate>2019-05-28</releasedate>
+  <enddate>2019-06-25</enddate>
+  <runtime>60</runtime>
+  <genre>纪录</genre>
+  <studio>BBC Two</studio>
+  <tag>space</tag>
+  <tag>astronomy</tag>
+  <tag>solar system</tag>
+  <tvdbid>364131</tvdbid>
+  <art>
+    <poster>\\192.168.124.8\toshiba\影视资源\纪录片\行星\folder.jpg</poster>
+    <fanart>\\192.168.124.8\toshiba\影视资源\纪录片\行星\backdrop.jpg</fanart>
+  </art>
+  <actor>
+    <name>布莱恩·考克斯</name>
+    <role>Self - Presenter</role>
+    <type>Actor</type>
+    <sortorder>0</sortorder>
+    <thumb>E:\Jellyfin\Server\data\metadata\People\布\布莱恩·考克斯\folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>Gideon Bradshaw</name>
+    <role>Producer</role>
+    <type>Producer</type>
+  </actor>
+  <actor>
+    <name>Andrew Cohen</name>
+    <role>Executive Producer</role>
+    <type>Producer</type>
+  </actor>
+  <id>364131</id>
+  <episodeguide>
+    <url cache="364131.xml">http://www.thetvdb.com/api/1D62F2F90030C444/series/364131/all/zh.zip</url>
+  </episodeguide>
+  <season>-1</season>
+  <episode>-1</episode>
+  <status>Ended</status>
+</tvshow>

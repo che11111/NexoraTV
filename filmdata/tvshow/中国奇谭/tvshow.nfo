@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<tvshow>
+  <plot>本片由八个植根于中国传统文化的独立的故事组成：《小妖怪的夏天》《鹅鹅鹅》《林林》《乡村巴士带走了王孩儿和神仙》《小满》《玉兔》《小卖部》《飞鸟与鱼》，在观众面前铺陈开一个极具中式想象力和审美魅力的“妖怪”故事集。
+
+　　其中故事纵览古今、展望未来，从古代故事到科幻想象、 从乡土眷恋到唯美爱情、从生命母题到人性思考，展现着中式想象力、承载着中国民族文化与哲学。影片涵盖多种美术风格以及制作手法：既有传统的二维、剪纸、偶定格动画，又有CG、三渲二的现代技术，还有将素描与中国水墨韵味相结合的创新尝试，是创作者们对中国美学一次多视角的诠释。</plot>
+  <outline>本片由八个植根于中国传统文化的独立的故事组成：《小妖怪的夏天》《鹅鹅鹅》《林林》《乡村巴士带走了王孩儿和神仙》《小满》《玉兔》《小卖部》《飞鸟与鱼》，在观众面前铺陈开一个极具中式想象力和审美魅力的“妖怪”故事集。
+
+　　其中故事纵览古今、展望未来，从古代故事到科幻想象、 从乡土眷恋到唯美爱情、从生命母题到人性思考，展现着中式想象力、承载着中国民族文化与哲学。影片涵盖多种美术风格以及制作手法：既有传统的二维、剪纸、偶定格动画，又有CG、三渲二的现代技术，还有将素描与中国水墨韵味相结合的创新尝试，是创作者们对中国美学一次多视角的诠释。</outline>
+  <lockdata>false</lockdata>
+  <dateadded>2024-10-06 01:47:48</dateadded>
+  <title>中国奇谭</title>
+  <originaltitle>中国奇谭</originaltitle>
+  <director>潘斌</director>
+  <director>陈廖宇</director>
+  <rating>7.9</rating>
+  <year>2023</year>
+  <mpaa>TV-14</mpaa>
+  <imdb_id>tt26007176</imdb_id>
+  <tmdbid>139162</tmdbid>
+  <premiered>2023-01-01</premiered>
+  <releasedate>2023-01-01</releasedate>
+  <enddate>2023-02-12</enddate>
+  <runtime>19</runtime>
+  <genre>动画</genre>
+  <genre>Sci-Fi &amp; Fantasy</genre>
+  <studio>bilibili</studio>
+  <tag>qihuan</tag>
+  <tvdbid>429213</tvdbid>
+  <art>
+    <poster>\\192.168.124.8\toshiba\影视资源\动漫剧\[Z] 中国奇谭\folder.jpg</poster>
+    <fanart>\\192.168.124.8\toshiba\影视资源\动漫剧\[Z] 中国奇谭\backdrop.jpg</fanart>
+  </art>
+  <actor>
+    <name>邢韵嘉</name>
+    <type>Actor</type>
+    <sortorder>0</sortorder>
+    <thumb>E:\Jellyfin\Server\data\metadata\People\邢\邢韵嘉\folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>林强</name>
+    <type>Actor</type>
+    <sortorder>1</sortorder>
+    <thumb>E:\Jellyfin\Server\data\metadata\People\林\林强\folder.jpg</thumb>
+  </actor>
+  <actor>
+    <name>速达</name>
+    <role>Producer</role>
+    <type>Producer</type>
+  </actor>
+  <actor>
+    <name>李早</name>
+    <role>Producer</role>
+    <type>Producer</type>
+  </actor>
+  <actor>
+    <name>张圣晏</name>
+    <role>Producer</role>
+    <type>Producer</type>
+  </actor>
+  <actor>
+    <name>李旎</name>
+    <role>Supervising Producer</role>
+    <type>Producer</type>
+  </actor>
+  <id>429213</id>
+  <episodeguide>
+    <url cache="429213.xml">http://www.thetvdb.com/api/1D62F2F90030C444/series/429213/all/zh.zip</url>
+  </episodeguide>
+  <season>-1</season>
+  <episode>-1</episode>
+  <status>Ended</status>
+</tvshow>

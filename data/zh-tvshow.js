@@ -1,0 +1,105 @@
+export default [
+  {
+    id: 'zt-1',
+    title: '大明王朝1566',
+    description: '明代嘉靖年间，海瑞、胡宗宪等清官在朝廷内外与严嵩等奸臣斗争，展现了一段波澜壮阔的历史画卷。通过权力的较量，深刻揭示了明朝中期的政治矛盾和社会现实。',
+    cover: new URL('../filmdata/tvshow/大明王朝1566/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-2',
+    title: '成吉思汗',
+    description: '讲述了铁木真从部落首领到成为统一蒙古各部的成吉思汗的传奇一生，展现了草原民族的文化传统和英雄气概，诠释了一代天骄的雄心壮志。',
+    cover: new URL('../filmdata/tvshow/成吉思汗/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-3',
+    title: '汉武大帝',
+    description: '再现了汉武帝刘彻从即位到驾崩的传奇一生，展现了他开创文景之治、统一匈奴、开拓丝绸之路等丰功伟绩，塑造了一代明君的形象。',
+    cover: new URL('../filmdata/tvshow/汉武大帝/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-4',
+    title: '鸡毛飞上天',
+    description: '讲述了浙江义乌小商品市场从改革开放初期到新世纪的变迁，年轻夫妇陈江河、雷实梅白手起家，在商海沉浮中追逐梦想，见证了中国民营经济的蓬勃发展。',
+    cover: new URL('../filmdata/tvshow/鸡毛飞上天/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-5',
+    title: '康熙王朝',
+    description: '展现了康熙帝从少年天子到明君的成长历程，通过与鳌拜、吴三桂等重臣的权力斗争，以及对西方传教士、满汉关系的处理，塑造了一代雄主的形象。',
+    cover: new URL('../filmdata/tvshow/康熙王朝/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-6',
+    title: '漫长的季节',
+    description: '以三兄弟的人生轨迹为主线，展现了改革开放四十年间的时代变迁，通过家族情感、商业纷争和人性考验，深刻反映了普通人的命运起伏。',
+    cover: new URL('../filmdata/tvshow/漫长的季节/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-7',
+    title: '雍正王朝',
+    description: '描绘了雍正帝从四阿哥到继位帝王的传奇历程，展现了他如何运用权谋智慧，处理朝堂党争、八王夺嫡等重大危机，最终确立新政革新的故事。',
+    cover: new URL('../filmdata/tvshow/雍正王朝/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-8',
+    title: '朱元璋',
+    description: '再现了朱元璋从贫苦农民到明朝开国皇帝的传奇人生，展现了他带领农民起义军推翻元朝统治、建立明朝的历史进程，塑造了一代枭雄形象。',
+    cover: new URL('../filmdata/tvshow/朱元璋/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-9',
+    title: '红楼梦',
+    description: '根据中国古典文学名著改编，通过贾宝玉、林黛玉、薛宝钗等人的悲欢离合，展现了大观园中的人情冷暖，揭示了封建社会大家族的兴衰命运。',
+    cover: new URL('../filmdata/tvshow/红楼梦/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-10',
+    title: '三国演义',
+    description: '',
+    cover: new URL('../filmdata/tvshow/三国演义/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-11',
+    title: '水浒传',
+    description: '改编自中国四大名著之一，讲述了以宋江为首的一百零八将被逼上梁山，与朝廷对抗又被招安的故事，展现了梁山好汉的侠义精神与命运。',
+    cover: new URL('../filmdata/tvshow/水浒传/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-12',
+    title: '西游记',
+    description: '改编自吴承恩名著，讲述了唐僧师徒四人历经九九八十一难，取得真经的传奇故事。通过西行路上的种种磨难，展现了佛道两家的思想内涵。',
+    cover: new URL('../filmdata/tvshow/西游记/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-13',
+    title: '亮剑',
+    description: '讲述了李云龙等抗日英雄在战火纷飞的年代，带领八路军战士与日寇殊死搏斗的故事，展现了中国军人的血性与智慧，以及革命军人的成长历程。',
+    cover: new URL('../filmdata/tvshow/亮剑/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-14',
+    title: '人民的名义',
+    description: '以检察官侯亮平查办汉东省副省长祁同伟贪腐案为主线，揭露了官场贪腐和权力寻租的内幕，展现了反腐败斗争的复杂性和艰巨性。',
+    cover: new URL('../filmdata/tvshow/人民的名义/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-15',
+    title: '狂飙',
+    description: '讲述了以安欣为首的刑警队伍与以高启强为首的黑恶势力展开殊死较量的故事，展现了新时代扫黑除恶的决心，揭示了正邪较量的残酷。',
+    cover: new URL('../filmdata/tvshow/狂飙/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-16',
+    title: '历史转折中的邓小平',
+    description: '再现了邓小平同志在文革结束后，力排众议推动改革开放的历史进程，展现了他在重大历史关头的政治智慧和为民情怀，塑造了一代伟人形象。',
+    cover: new URL('../filmdata/tvshow/历史转折中的邓小平/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'zt-17',
+    title: '繁花',
+    description: '以上海改革开放为背景，讲述了商海沉浮中宝总、阿宝等人的情感纠葛和商业传奇，展现了小人物在时代大潮中的奋斗历程和命运起伏。',
+    cover: new URL('../filmdata/tvshow/繁花/folder.jpg', import.meta.url).href,
+  },
+];
+  

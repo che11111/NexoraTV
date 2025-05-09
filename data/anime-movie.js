@@ -1,0 +1,92 @@
+export default [
+  {
+    id: 'am-1',
+    title: '你的名字',
+    description: '在日本乡村的女高中生三叶与东京少年泷野泰树之间，似乎存在着某种联系。当他们在梦中相遇时，发现自己竟然互换了身体。',
+    cover: new URL('../filmdata/movie/你的名字/folder.jpg',import.meta.url).href,
+  },
+  {
+    id: 'am-2',
+    title: '千与千寻',
+    description: '10岁的少女千寻与父母一起搬家时，意外进入了神灵世界。在这个奇特的世界里，千寻必须想办法救出被变成猪的父母，并找到回家的方法。',
+    cover: new URL('../filmdata/movie/千与千寻/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-3',
+    title: '哈尔的移动城堡',
+    description: '年轻的苏菲被巫婆诅咒变成老太婆，她来到会移动的城堡寻求帮助，遇见了魔法师哈尔，两人共同经历了一段奇幻冒险。',
+    cover: new URL('../filmdata/movie/哈尔的移动城堡/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-4',
+    title: '铃芽之旅',
+    description: '少女铃芽为了拯救日本各地的废墟，踏上了一段关闭神秘之门的旅程，在这过程中她遇见了神秘青年草太郎。',
+    cover: new URL('../filmdata/movie/铃芽之旅/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-5',
+    title: '你想活出怎样的人生',
+    description: '高中生小园美樱在一次偶然中获得了穿越时空的能力，她开始思考如何选择自己的人生，以及什么才是真正的幸福。',
+    cover: new URL('../filmdata/movie/你想活出怎样的人生/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-6',
+    title: '起风了',
+    description: '讲述了日本飞机设计师堀越二郎的传奇人生，他在动荡年代追逐着自己对飞机设计的梦想，同时也面临着战争的考验。',
+    cover: new URL('../filmdata/movie/起风了/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-7',
+    title: '天空之城',
+    description: '少年巴鲁和神秘女孩希达一起寻找传说中的天空之城拉普达，在冒险过程中他们遭遇了军方势力的追捕与重重危机。',
+    cover: new URL('../filmdata/movie/天空之城/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-8',
+    title: '天气之子',
+    description: '在东京打拼的少年帆高遇见了可以改变天气的少女阳菜，他们的相遇改变了这座城市的命运，也让两人的生活发生转变。',
+    cover: new URL('../filmdata/movie/天气之子/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-9',
+    title: '天书奇谭',
+    description: '天界的仙女小倩为寻找散落人间的天书残页来到凡间，与书生郎秋水相遇，两人共同经历了一段奇幻冒险故事。',
+    cover: new URL('../filmdata/movie/天书奇谭/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-10',
+    title: '大闹天宫',
+    description: '孙悟空学艺归来后因不满天庭对待，勇闯天宫大闹一场，最终被如来佛祖压在五指山下，这是一部展现中国传统文化的经典动画。',
+    cover: new URL('../filmdata/movie/大闹天宫/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-11',
+    title: '哪吒闹海',
+    description: '哪吒自幼天资聪颖但命运多舛，他斩杀东海龙王三太子，后来更是以死明志自刨双腿，最终得到龙王谅解重获新生。',
+    cover: new URL('../filmdata/movie/哪吒闹海/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-12',
+    title: '大护法',
+    description: '在架空的世界中，大护法为了寻找下落不明的太子，踏上了一段充满黑暗与希望的旅程，展开了一场惊心动魄的冒险。',
+    cover: new URL('../filmdata/movie/大护法/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-13',
+    title: '龙猫',
+    description: '小姐妹小月和小梅搬到乡下居住，她们在那里遇见了神奇的森林精灵龙猫，经历了一段温馨治愈的奇幻冒险。',
+    cover: new URL('../filmdata/movie/龙猫/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-14',
+    title: '罗小黑战记',
+    description: '一只特殊的猫妖罗小黑在与谛听的相遇后，卷入了妖精与人类世界的纷争之中，在冒险中逐渐成长学会担当。',
+    cover: new URL('../filmdata/movie/罗小黑战记/folder.jpg', import.meta.url).href,
+  },
+  {
+    id: 'am-15',
+    title: '长安三万里',
+    description: '讲述了盛唐时期诗人高适与李白的传奇故事，展现了一个充满诗意与豪情的大唐盛世，诠释了人生与理想的真谛。',
+    cover: new URL('../filmdata/movie/长安三万里/folder.jpg', import.meta.url).href,
+  },
+];

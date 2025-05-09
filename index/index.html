@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>NexoraTV</title>
+    <link rel="apple-touch-icon" sizes="192x192" href="../favicon/2/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/2/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/2/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/2/favicon-16x16.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-32x32.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-48x48.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/banner.css">
+    <script src="./js/theme-detect.js"></script>
+    <script src="./js/theme.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- 顶部导航栏 -->
+        <header class="app-header">
+            <div class="header-left">
+                <img src="../img/title-white.png" alt="NexoraTV" class="logo" draggable="false">
+            </div>
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" id="indexSearchInput" placeholder="搜索影视...">
+                    <button class="search-btn">
+                        <img src="../img/search.gif" alt="搜索">
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <section class="banner">
+                <div id="banner-slider" class="banner-container">
+                    <div class="slider">
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/1.png" alt="推荐影片1" onerror="this.src='../data/SlideShow/1.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/2.png" alt="推荐影片2" onerror="this.src='../data/SlideShow/2.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/3.png" alt="推荐影片3" onerror="this.src='../data/SlideShow/3.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/4.png" alt="推荐影片4" onerror="this.src='../data/SlideShow/4.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/5.png" alt="推荐影片5" onerror="this.src='../data/SlideShow/5.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/6.png" alt="推荐影片6" onerror="this.src='../data/SlideShow/6.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/7.png" alt="推荐影片7" onerror="this.src='../data/SlideShow/7.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/8.png" alt="推荐影片8" onerror="this.src='../data/SlideShow/8.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/9.png" alt="推荐影片9" onerror="this.src='../data/SlideShow/9.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/10.png" alt="推荐影片10" onerror="this.src='../data/SlideShow/10.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/11.png" alt="推荐影片11" onerror="this.src='../data/SlideShow/11.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/12.png" alt="推荐影片12" onerror="this.src='../data/SlideShow/12.png'">
+                        </div>
+                        <div class="slide">
+                            <img src="../filmdata/SlideShow/13.png" alt="推荐影片13" onerror="this.src='../data/SlideShow/13.png'">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn slider-prev">❮</button>
+                        <button class="slider-btn slider-next">❯</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+            </section>
+
+
+
+            <section class="video-section">
+                <h2>热门推荐</h2>
+                <div id="videoGrid" class="video-grid">
+                    <!-- 视频卡片将通过JavaScript动态生成 -->
+                </div>
+            </section>
+            
+            <section id="searchResults" class="video-section" style="display: none;">
+                <h2>搜索结果</h2>
+                <div id="searchResultsGrid" class="video-grid">
+                    <!-- 搜索结果将通过JavaScript动态生成 -->
+                </div>
+            </section>
+        </main>
+
+                
+                
+                    
+               
+        
+
+                
+
+        <!-- 侧边导航 -->
+        <nav class="side-nav">
+            <a href="#" class="nav-item active">
+                <img src="icons/home.svg" alt="首页" class="nav-icon">
+                <span>首页</span>
+            </a>
+            <a href="./search.html" class="nav-item">
+                <img src="icons/search.svg" alt="搜索" class="nav-icon">
+                <span>搜索</span>
+            </a>
+            <a href="./category.html" class="nav-item">
+                <img src="icons/list.svg" alt="分类" class="nav-icon">
+                <span>分类</span>
+            </a>
+            <a href="./settings.html" class="nav-item">
+                <img src="icons/cog.svg" alt="设置" class="nav-icon">
+                <span>设置</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="./js/banner.js"></script>
+    <script>
+        // 切换显示内容
+        function toggleContent(isSearching) {
+            document.getElementById('videoGrid').parentElement.style.display = isSearching ? 'none' : 'block';
+            document.getElementById('searchResults').style.display = isSearching ? 'block' : 'none';
+            
+            // 如果退出搜索状态，重新加载推荐内容
+            if (!isSearching) {
+                loadRecommendations();
+            }
+        }
+
+        // 调试日志函数
+        function debugLog(message) {
+            const debugDiv = document.getElementById('debugInfo');
+            debugDiv.innerHTML += message + '\n';
+            console.log(message);
+        }
+
+        // 搜索功能
+        async function performSearch() {
+            const query = document.getElementById('indexSearchInput').value.trim();
+            toggleContent(query.length > 0);
+            
+            if (query.length === 0) {
+                return;
+            }
+
+            try {
+                const categories = [
+                    'zh-movie.js', 'en-movie.js', 'anime-movie.js',
+                    'zh-tvshow.js', 'en-tvshow.js', 'anime-tvshow.js'
+                ];
+                
+                let allVideos = [];
+                for (const category of categories) {
+                    try {
+                        console.log('正在加载分类:', category);
+                        const module = await import(`../data/${category}`);
+                        console.log('加载成功，视频数量:', module.default.length);
+                        allVideos = [...allVideos, ...module.default];
+                    } catch (err) {
+                        console.error(`加载分类 ${category} 失败:`, err);
+                    }
+                }
+
+                console.log('总视频数量:', allVideos.length);
+                const results = allVideos.filter(video => 
+                    video.title.toLowerCase().includes(query.toLowerCase())
+                );
+                console.log('搜索结果数量:', results.length);
+
+                const resultsGrid = document.getElementById('searchResultsGrid');
+                if (results.length > 0) {
+                    resultsGrid.innerHTML = results.map(video => `
+                        <div class="video-card">
+                            <img src="${video.cover}" alt="${video.title}" onerror="this.src='../img/404.png'">
+                            <h3>${video.title}</h3>
+                            <p class="video-desc">${video.description.substring(0, 15)}${video.description.length > 15 ? '...' : ''}</p>
+                        </div>
+                    `).join('');
+                } else {
+                    resultsGrid.innerHTML = '<p class="no-results">没有找到相关影片</p>';
+                }
+            } catch (error) {
+                console.error('搜索出错:', error);
+                document.getElementById('searchResults').innerHTML = 
+                    '<p class="error">搜索时出错，请重试</p>';
+            }
+        }
+
+        // 防抖函数
+        function debounce(func, delay) {
+            let timeoutId;
+            return function(...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        }
+
+        // 初始化搜索功能
+        document.addEventListener('DOMContentLoaded', () => {
+            const indexSearchInput = document.getElementById('indexSearchInput');
+            const debouncedSearch = debounce(performSearch, 300);
+            
+            indexSearchInput.addEventListener('input', () => {
+                const hasText = indexSearchInput.value.trim().length > 0;
+                toggleContent(hasText);
+                if (hasText) {
+                    debouncedSearch();
+                }
+            });
+            
+            indexSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+            
+            document.querySelector('.search-btn').addEventListener('click', performSearch);
+        });
+
+        // 加载推荐数据
+        async function loadRecommendations() {
+            try {
+                // 从不同分类中加载数据
+                const categories = [
+                    'zh-movie.js',
+                    'en-movie.js',
+                    'anime-movie.js'
+                ];
+                
+                let allVideos = [];
+                
+                for (const category of categories) {
+                    const module = await import(`../data/${category}`);
+                    allVideos = [...allVideos, ...module.default];
+                }
+                
+                // 根据窗口大小选择视频数量
+                const shuffled = allVideos.sort(() => 0.5 - Math.random());
+                let selectedVideos;
+                
+                function updateVideoCount() {
+                    if (window.innerWidth >= 992 && window.innerWidth < 1200) {
+                        selectedVideos = shuffled.slice(0, 12);
+                    } else {
+                        selectedVideos = shuffled.slice(0, 8);
+                    }
+                    renderVideos();
+                }
+                
+                function renderVideos() {
+                    const videoGrid = document.getElementById('videoGrid');
+                    videoGrid.innerHTML = selectedVideos.map(video => `
+                        <div class="video-card">
+                            <img src="${video.cover}" alt="${video.title}" onerror="this.src='../img/404.png'">
+                            <div class="play-button" onclick="localStorage.setItem('searchQuery', '${video.title.replace(/'/g, "\\'")}'); window.location.href='search.html'"></div>
+                            <h3>${video.title}</h3>
+                            <p class="video-desc">${video.description.substring(0, 15)}${video.description.length > 15 ? '...' : ''}</p>
+                        </div>
+                    `).join('');
+                }
+                
+                // 初始渲染
+                updateVideoCount();
+                // 监听窗口大小变化
+                window.addEventListener('resize', updateVideoCount);
+                
+                // 渲染视频列表
+                const videoGrid = document.getElementById('videoGrid');
+                videoGrid.innerHTML = selectedVideos.map(video => `
+                    <div class="video-card">
+                        <img src="${video.cover}" alt="${video.title}" onerror="this.src='../img/404.png'">
+                        <div class="play-button" onclick="localStorage.setItem('searchQuery', '${video.title.replace(/'/g, "\\'")}'); window.location.href='search.html'"></div>
+                        <h3>${video.title}</h3>
+                        <p class="video-desc">${video.description.substring(0, 15)}${video.description.length > 15 ? '...' : ''}</p>
+                    </div>
+                `).join('');
+                
+            } catch (error) {
+                console.error('加载推荐数据失败:', error);
+                // 显示默认内容
+                document.getElementById('videoGrid').innerHTML = `
+                    <div class="video-card">
+                        <img src="../img/cover.png" alt="影片1">
+                        <h3>影片1</h3>
+                    </div>
+                    <div class="video-card">
+                        <img src="../img/cover.png" alt="影片2">
+                        <h3>影片2</h3>
+                    </div>
+                    <div class="video-card">
+                        <img src="../img/cover.png" alt="影片3">
+                        <h3>影片3</h3>
+                    </div>
+                    <div class="video-card">
+                        <img src="../img/cover.png" alt="影片4">
+                        <h3>影片4</h3>
+                    </div>
+                `;
+            }
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadRecommendations);
+    </script>
+
+</body>
+</html>

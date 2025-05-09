@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="apple-touch-icon" sizes="192x192" href="../favicon/2/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/2/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/2/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/2/favicon-16x16.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-32x32.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-48x48.ico">
+    <script src="../player/lib/tailwind.min.js"></script>
+    <link rel="stylesheet" href="../player/css/styles.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        // 在DOM加载前设置主题,防止闪白或闪黑
+        (function() {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+        })();
+    </script>
+    <script src="./js/theme-detect.js"></script>
+    <script src="./js/theme.js"></script>
+</head>
+<style>
+    :root:not([data-theme="dark"]) .page-bg {
+        background: white;
+    }
+    :root[data-theme="dark"] .page-bg {
+        background: #1a1a1a;
+    }
+</style>
+<body>
+    <div class="app-container"> 
+        <!-- 顶部导航栏 -->
+        <header class="app-header">
+            <div class="header-left">
+                <img src="../img/title-white.png" alt="NexoraTV" class="logo" draggable="false">
+            </div>
+                <button onclick="toggleSettings(event)" class="text-2xl" aria-label="打开设置">
+                    ⚙️
+                </button>
+        </header>
+
+
+        <body class="page-bg text-white">
+
+        
+            <!-- 设置面板 -->
+            <div id="settingsPanel" class="settings-panel fixed right-0 top-0 h-full w-80 bg-[#222] border-l border-[#61b9fe] p-6 z-40" aria-label="设置面板" aria-hidden="true">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold gradient-text">设置</h3>
+                    <button onclick="toggleSettings()" class="text-gray-400 hover:text-white" aria-label="关闭设置">&times;</button>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-black-400 mb-2">选择采集站点</label>
+                        <select id="apiSource" class="w-full bg-[#222] border border-[#333] text-white px-3 py-2 rounded-lg focus:outline-none focus:border-white transition-colors">
+                            <option value="aggregated">聚合搜索 (所有源)</option>
+                            <option value="wolong" selected>卧龙资源 (wolong)</option>
+                            <option value="heimuer">黑木耳影视 (heimuer)</option>
+                            <option value="ffzy">非凡影视 (ffzy)</option>
+                            <option value="tyyszy">天涯资源 (tyyszy)</option>
+                            <option value="zy360">360资源 (zy360)</option>
+                            <option value="cjhw">华为吧 (cjhw)</option>
+                            <option value="dbzy">豆瓣资源 (dbzy)</option>
+                            <option value="jisu">极速资源 (jisu)</option>
+                            <option value="jisu">暴风资源 (bfzy)</option>
+                            <option value="jisu">魔爪资源 (mozhua)</option>
+                            <option value="jisu">魔都资源 (mdzy)</option>
+                            <option value="jisu">如意资源 (ruyi)</option>
+                            <option value="jisu">最大资源 (zuid)</option>
+                            <option value="custom">自定义接口</option>
+                        </select>
+                    
+                    </div>
+                    
+                    <!-- 添加自定义接口输入框 -->
+                    <div id="customApiInput" class="hidden">
+                        <label class="block text-sm font-medium text-black-400 mb-2">自定义接口地址(可添加多个，用逗号分隔)</label>
+                        <input 
+                            type="text" 
+                            id="customApiUrl" 
+                            class="w-full bg-[#222] border border-[#333] text-white px-3 py-2 rounded-lg focus:outline-none focus:border-white transition-colors"
+                            placeholder="https://example1.com,https://example2.com..."
+                        >
+                        <p class="text-xs text-gray-500 mt-1">格式: https://example1.com,https://example2.com (不含最后的斜杠)</p>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label class="text-sm font-medium text-black-400">不良内容过滤</label>
+                            <div class="relative inline-block w-12 align-middle select-none">
+                                <input type="checkbox" id="yellowFilterToggle" class="opacity-0 absolute w-full h-full cursor-pointer z-10">
+                                <div class="toggle-bg bg-[#333] w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"></div>
+                                <div class="toggle-dot absolute w-5 h-5 bg-white rounded-full top-0.5 left-0.5 transition-transform duration-300 ease-in-out"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">关闭可减少部分不相干内容</p>
+                    </div>
+                    
+                    <!-- 添加广告过滤开关 -->
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label class="text-sm font-medium text-black-400">分片广告过滤</label>
+                            <div class="relative inline-block w-12 align-middle select-none">
+                                <input type="checkbox" id="adFilterToggle" class="opacity-0 absolute w-full h-full cursor-pointer z-10">
+                                <div class="toggle-bg bg-[#333] w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"></div>
+                                <div class="toggle-dot absolute w-5 h-5 bg-white rounded-full top-0.5 left-0.5 transition-transform duration-300 ease-in-out"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">关闭可减少旧版浏览器播放卡顿问题</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="text-xs text-gray-500">当前站点代码：
+                            <span id="currentCode" class="text-gray"></span>
+                            <span id="siteStatus" class="ml-2"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container mx-auto px-4 py-8 flex flex-col h-screen">
+                <div class="flex-1 flex flex-col">
+
+                    
+                    <!-- 搜索区域：默认居中 -->
+                    <div id="searchArea" class="flex-1 flex flex-col items-center ">
+                        <div class="w-full max-w-2xl">
+                            <div class="flex">
+                                <input type="text" 
+                                       id="searchInput" 
+                                       class="w-full bg-[#bde4f6] border border-[#61b9fe] text-black px-6 py-4 rounded-l-lg focus:outline-none focus:border-white transition-colors" 
+                                       placeholder="搜索你喜欢的视频..."
+                                       aria-label="视频搜索框">
+                                <button onclick="search()" 
+                                class="px-8 py-4 bg-white border border-[#61b9fe] text-2xl text-black font-medium rounded-r-lg hover:bg-gray-200 transition-colors"
+                                        aria-label="搜索按钮">
+                                        <!-- 🔍 -->
+                                        <img src="../img/search.gif" class="w-12 h-12 mr-2" alt="Search Logo">
+                                </button>
+                            </div>
+                            
+                            <!-- 添加最近搜索记录部分 -->
+                            <div id="recentSearches" class="mt-4 flex flex-wrap gap-2" aria-label="最近搜索记录">
+                                <!-- 这里会动态插入最近的搜索记录 -->
+                            </div>
+                            <!-- 清除历史按钮已移至搜索历史标题行 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 搜索结果：初始隐藏 -->
+                    <div id="resultsArea" class="w-full hidden">
+                        <div id="results" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+            <!-- 详情模态框 -->
+            <div id="modal" class="fixed inset-0 bg-black/95 hidden flex items-center justify-center transition-opacity duration-300">
+                <div class="bg-[#111] p-8 rounded-lg w-11/12 max-w-4xl border border-[#333] max-h-[90vh] flex flex-col">
+                    <div class="flex justify-between items-center mb-6 flex-none">
+                        <h2 id="modalTitle" class="text-2xl font-bold gradient-text break-words pr-4 max-w-[80%]"></h2>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl transition-colors flex-shrink-0">&times;</button>
+                    </div>
+                    <div id="modalContent" class="overflow-auto flex-1 min-h-0">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- 错误提示框 -->
+            <div id="toast" style="position: fixed; top: 200px; left: 50%; transform: translateX(-50%); background: #ff4d4f; color: white; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999; opacity: 0; transition: all 0.3s ease; pointer-events: none;">
+                <p id="toastMessage"></p>
+            </div>
+        
+            <!-- 添加 loading 提示框 -->
+            <div id="loading" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+                <div class="bg-[#111] p-8 rounded-lg border border-[#333] flex items-center space-x-4">
+                    <div class="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-white text-lg">加载中...</p>
+                </div>
+            </div>
+        
+
+
+
+        <!-- 侧边导航 -->
+        <nav class="side-nav">
+            <a href="index.html" class="nav-item">
+                <img src="icons/home.svg" alt="首页" class="nav-icon">
+                <span>首页</span>
+            </a>
+            <a href="search.html" class="nav-item active">
+                <img src="icons/search.svg" alt="搜索" class="nav-icon">
+                <span>搜索</span>
+            </a>
+            <a href="category.html" class="nav-item">
+                <img src="icons/list.svg" alt="分类" class="nav-icon">
+                <span>分类</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <img src="icons/cog.svg" alt="设置" class="nav-icon">
+                <span>设置</span>
+            </a>
+        </nav>
+    </div>
+
+
+
+
+    <script src="../player/js/config.js"></script>
+    <script src="../player/js/ui.js"></script>
+    <script src="../player/js/api.js"></script>
+    <script src="../player/js/app.js"></script>
+
+    <script>
+        // 检查localStorage并自动填充搜索
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchQuery = localStorage.getItem('searchQuery');
+            if (searchQuery) {
+                const searchInput = document.getElementById('searchInput');
+                searchInput.value = searchQuery;
+                localStorage.removeItem('searchQuery');
+                search(); // 触发搜索
+            }
+        });
+    </script>
+
+</body>
+</html>

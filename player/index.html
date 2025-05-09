@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Nexora - onlineTV</title>
+    <meta name="description" content="Nexora是一个免费的在线视频搜索平台，无广告、安全，提供来自多个视频源的内容搜索与观看服务，无需注册即可使用。">
+    <meta name="keywords" content="在线视频,免费视频,视频搜索,电影,电视剧,Nexora">
+    <meta name="author" content="Nexora Team">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Nexora - 免费在线视频搜索与观看平台">
+    <meta property="og:description" content="搜索并观看来自多个视频源的内容，支持多种设备，无需注册即可使用。">
+    <meta property="og:image" content="./img/logo.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="">
+    <meta property="twitter:title" content="Nexora - 免费在线视频搜索与观看平台">
+    <meta property="twitter:description" content="搜索并观看来自多个视频源的内容，支持多种设备，无需注册即可使用。">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/1/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/1/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/1/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/1/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/1/favicon-16x16.ico">
+    <link rel="shortcut icon" href="../favicon/1/favicon-32x32.ico">
+    <link rel="shortcut icon" href="../favicon/1/favicon-48x48.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="">
+    
+    <script src="./lib/tailwind.min.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="page-bg text-white">
+    <div class="text-2xl fixed top-4 right-4 z-50 flex items-center space-x-4">
+        <button onclick="toggleSettings(event)" class="bg-white hover:bg-gray border border-[#61b9fe] hover:border-[#333] rounded-lg px-4 py-2 transition-colors" aria-label="打开设置">
+            ⚙️
+        </button>
+    </div>
+
+    <!-- 设置面板 -->
+    <div id="settingsPanel" class="settings-panel fixed right-0 top-0 h-full w-80 bg-[#222] border-l border-[#61b9fe] p-6 z-40" aria-label="设置面板" aria-hidden="true">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold gradient-text">设置</h3>
+            <button onclick="toggleSettings()" class="text-gray-400 hover:text-white" aria-label="关闭设置">&times;</button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-black-400 mb-2">选择采集站点</label>
+                <select id="apiSource" class="w-full bg-[#222] border border-[#333] text-white px-3 py-2 rounded-lg focus:outline-none focus:border-white transition-colors">
+                    <option value="aggregated">聚合搜索 (所有源)</option>
+                    <option value="wolong" selected>卧龙资源 (wolong)</option>
+                    <option value="heimuer">黑木耳影视 (heimuer)</option>
+                    <option value="ffzy">非凡影视 (ffzy)</option>
+                    <option value="tyyszy">天涯资源 (tyyszy)</option>
+                    <option value="zy360">360资源 (zy360)</option>
+                    <option value="cjhw">华为吧 (cjhw)</option>
+                    <option value="dbzy">豆瓣资源 (dbzy)</option>
+                    <option value="jisu">极速资源 (jisu)</option>
+                    <option value="jisu">暴风资源 (bfzy)</option>
+                    <option value="jisu">魔爪资源 (mozhua)</option>
+                    <option value="jisu">魔都资源 (mdzy)</option>
+                    <option value="jisu">如意资源 (ruyi)</option>
+                    <option value="jisu">最大资源 (zuid)</option>
+                    <option value="custom">自定义接口</option>
+                </select>
+            
+            </div>
+            
+            <!-- 添加自定义接口输入框 -->
+            <div id="customApiInput" class="hidden">
+                <label class="block text-sm font-medium text-black-400 mb-2">自定义接口地址(可添加多个，用逗号分隔)</label>
+                <input 
+                    type="text" 
+                    id="customApiUrl" 
+                    class="w-full bg-[#222] border border-[#333] text-white px-3 py-2 rounded-lg focus:outline-none focus:border-white transition-colors"
+                    placeholder="https://example1.com,https://example2.com..."
+                >
+                <p class="text-xs text-gray-500 mt-1">格式: https://example1.com,https://example2.com (不含最后的斜杠)</p>
+            </div>
+            
+            <div>
+                <div class="flex items-center justify-between">
+                    <label class="text-sm font-medium text-black-400">不良内容过滤</label>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="yellowFilterToggle" class="opacity-0 absolute w-full h-full cursor-pointer z-10">
+                        <div class="toggle-bg bg-[#333] w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"></div>
+                        <div class="toggle-dot absolute w-5 h-5 bg-white rounded-full top-0.5 left-0.5 transition-transform duration-300 ease-in-out"></div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">关闭可减少部分不相干内容</p>
+            </div>
+            
+            <!-- 添加广告过滤开关 -->
+            <div>
+                <div class="flex items-center justify-between">
+                    <label class="text-sm font-medium text-black-400">分片广告过滤</label>
+                    <div class="relative inline-block w-12 align-middle select-none">
+                        <input type="checkbox" id="adFilterToggle" class="opacity-0 absolute w-full h-full cursor-pointer z-10">
+                        <div class="toggle-bg bg-[#333] w-12 h-6 rounded-full transition-colors duration-300 ease-in-out"></div>
+                        <div class="toggle-dot absolute w-5 h-5 bg-white rounded-full top-0.5 left-0.5 transition-transform duration-300 ease-in-out"></div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">关闭可减少旧版浏览器播放卡顿问题</p>
+            </div>
+            
+            <div class="mt-4">
+                <p class="text-xs text-gray-500">当前站点代码：
+                    <span id="currentCode" class="text-gray"></span>
+                    <span id="siteStatus" class="ml-2"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 flex flex-col h-screen">
+        <div class="flex-1 flex flex-col">
+            <!-- 网站标志和口号 -->
+            <header class="text-center mb-2">
+                <div class="flex justify-center items-center mb-4">
+                    <img src="img/logo.png" class="w-20 h-20 mr-6" alt="Nexora Logo">
+                    <h1 class="text-7xl font-bold gradient-text">Nexora</h1>
+                </div>
+                <p class="text-gray-400">🌈 无限片库，精彩同频 🎉</p>
+            </header>
+            
+            <!-- 搜索区域：默认居中 -->
+            <div id="searchArea" class="flex-1 flex flex-col items-center justify-center">
+                <div class="w-full max-w-2xl">
+                    <div class="flex">
+                        <input type="text" 
+                               id="searchInput" 
+                               class="w-full bg-[#bde4f6] border border-[#61b9fe] text-black px-6 py-4 rounded-l-lg focus:outline-none focus:border-white transition-colors" 
+                               placeholder="搜索你喜欢的视频..."
+                               aria-label="视频搜索框">
+                        <button onclick="search()" 
+                        class="px-8 py-4 bg-white border border-[#61b9fe] text-2xl text-black font-medium rounded-r-lg hover:bg-gray-200 transition-colors"
+                                aria-label="搜索按钮">
+                                <!-- 🔍 -->
+                                <img src="./img/search.gif" class="w-12 h-12 mr-2" alt="Search Logo">
+                        </button>
+                    </div>
+                    
+                    <!-- 添加最近搜索记录部分 -->
+                    <div id="recentSearches" class="mt-4 flex flex-wrap gap-2" aria-label="最近搜索记录">
+                        <!-- 这里会动态插入最近的搜索记录 -->
+                    </div>
+                    <!-- 清除历史按钮已移至搜索历史标题行 -->
+                </div>
+            </div>
+            
+            <!-- 搜索结果：初始隐藏 -->
+            <div id="resultsArea" class="w-full hidden">
+                <div id="results" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 详情模态框 -->
+    <div id="modal" class="fixed inset-0 bg-black/95 hidden flex items-center justify-center transition-opacity duration-300">
+        <div class="bg-[#111] p-8 rounded-lg w-11/12 max-w-4xl border border-[#333] max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center mb-6 flex-none">
+                <h2 id="modalTitle" class="text-2xl font-bold gradient-text break-words pr-4 max-w-[80%]"></h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl transition-colors flex-shrink-0">&times;</button>
+            </div>
+            <div id="modalContent" class="overflow-auto flex-1 min-h-0">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 错误提示框 -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 opacity-0 -translate-y-full">
+        <p id="toastMessage"></p>
+    </div>
+
+    <!-- 添加 loading 提示框 -->
+    <div id="loading" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+        <div class="bg-[#111] p-8 rounded-lg border border-[#333] flex items-center space-x-4">
+            <div class="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-white text-lg">加载中...</p>
+        </div>
+    </div>
+
+
+
+    <script src="./js/config.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

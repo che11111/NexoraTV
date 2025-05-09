@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link rel="apple-touch-icon" sizes="192x192" href="../favicon/2/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/2/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/2/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/2/site.webmanifest">
+    <link rel="shortcut icon" href="../favicon/2/favicon-16x16.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-32x32.ico">
+    <link rel="shortcut icon" href="../favicon/2/favicon-48x48.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/category-sidebar.css">
+    <script src="./js/theme-detect.js"></script>
+    <script src="./js/theme.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="app-header">
+            <div class="header-left">
+                <img src="../img/title-white.png" alt="NexoraTV" class="logo" draggable="false">
+            </div>
+            <div class="header-left">
+            <!-- 移动端侧边栏切换按钮 -->
+            <div id="sidebar-toggle-btn" class="sidebar-toggle-btn" onclick="this.classList.toggle('animate')">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/>
+                </svg>
+            </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <div class="category-layout">
+                <!-- 遮罩层 -->
+                <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+                <!-- 侧边栏 -->
+                <aside id="categorySidebar" class="category-sidebar">
+                    <!-- 原始切换按钮，在移动端隐藏 -->
+                    <div id="originalToggleBtn" class="toggle-btn" onclick="this.parentElement.classList.toggle('collapsed')">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <ul>
+                        <li class="active" data-category="zhMovie">华语电影</li>
+                        <li data-category="zhTvshow">华语剧集</li>
+                        <li data-category="enMovie">国外电影</li>
+                        <li data-category="enTvshow">国外剧集</li>
+                        <li data-category="childMovie">动画电影</li>
+                        <li data-category="childTvshow">动画剧集</li>
+                        <li data-category="animeMovie">动漫电影</li>
+                        <li data-category="animeTvshow">动漫剧集</li>
+                        <li data-category="documentary">纪录片</li>
+                    </ul>
+                </aside>
+
+                <!-- 内容区 -->
+                <section class="category-content">
+                    <div id="categoryDisplay" class="video-grid"></div>
+                    <a href="#" class="view-more">查看更多 ></a>
+                </section>
+            </div>
+        </main>
+
+        <!-- 侧边导航 -->
+        <nav class="side-nav">
+            <a href="index.html" class="nav-item">
+                <img src="icons/home.svg" alt="首页" class="nav-icon">
+                <span>首页</span>
+            </a>
+            <a href="./search.html" class="nav-item">
+                <img src="icons/search.svg" alt="搜索" class="nav-icon">
+                <span>搜索</span>
+            </a>
+            <a href="category.html" class="nav-item active">
+                <img src="icons/list.svg" alt="分类" class="nav-icon">
+                <span>分类</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <img src="icons/cog.svg" alt="设置" class="nav-icon">
+                <span>设置</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 当前选中的分类
+        let currentCategory = 'zhMovie';
+        // 分类数据缓存
+        const categoryCache = {};
+
+        // 加载分类数据
+        async function loadCategory(category) {
+            if (categoryCache[category]) {
+                renderCategory(categoryCache[category]);
+                return;
+            }
+
+            try {
+                const categoryMap = {
+                    zhMovie: 'zh-movie.js',
+                    enMovie: 'en-movie.js',
+                    childMovie: 'child-movie.js',
+                    animeMovie: 'anime-movie.js',
+                    zhTvshow: 'zh-tvshow.js',
+                    enTvshow: 'en-tvshow.js',
+                    animeTvshow: 'anime-tvshow.js',
+                    childTvshow: 'child-tvshow.js',
+                    documentary: 'documentary.js'
+                };
+
+                const module = await import(`../data/${categoryMap[category]}`);
+                categoryCache[category] = module.default;
+                renderCategory(module.default);
+            } catch (error) {
+                console.error('加载分类数据失败:', error);
+                document.getElementById('categoryDisplay').innerHTML = 
+                    '<p class="error">加载失败，请重试</p>';
+            }
+        }
+
+        // 渲染分类内容
+        function renderCategory(videos, append = false) {
+            const container = document.getElementById('categoryDisplay');
+            const currentCount = append ? container.children.length : 0;
+            const newVideos = videos.slice(currentCount, currentCount + 24);
+            
+            if (newVideos.length === 0) {
+                document.querySelector('.view-more').style.display = 'none';
+                return;
+            }
+
+                const html = newVideos.map(video => `
+                    <div class="video-card">
+                        <img src="${video.cover}" alt="${video.title}" onerror="this.src='../img/404-1.png'">
+                        <div class="play-button" onclick="localStorage.setItem('searchQuery', '${video.title.replace(/'/g, "\\'")}'); window.location.href='search.html'"></div>
+                        <h3>${video.title}</h3>
+                        <p class="video-desc">${video.description.substring(0, 15)}${video.description.length > 15 ? '...' : ''}</p>
+                    </div>
+                `).join('');
+
+            if (append) {
+                container.insertAdjacentHTML('beforeend', html);
+            } else {
+                container.innerHTML = html;
+            }
+        }
+
+        // 切换分类
+        function switchCategory(category) {
+            currentCategory = category;
+            // 更新侧边栏选中状态
+            document.querySelectorAll('.category-sidebar li').forEach(li => {
+                li.classList.toggle('active', li.dataset.category === category);
+            });
+            // 加载新分类数据
+            loadCategory(category);
+        }
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', () => {
+            // 加载默认分类
+            loadCategory(currentCategory);
+
+            // 绑定侧边栏点击事件
+            document.querySelectorAll('.category-sidebar li').forEach(li => {
+                li.addEventListener('click', () => {
+                    switchCategory(li.dataset.category);
+                });
+            });
+
+            // 绑定查看更多点击事件
+            document.querySelector('.view-more').addEventListener('click', (e) => {
+                e.preventDefault();
+                if (categoryCache[currentCategory]) {
+                    renderCategory(categoryCache[currentCategory], true);
+                }
+            });
+        });
+
+        // --- 移动端侧边栏交互 ---
+        const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+        const categorySidebar = document.getElementById('categorySidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const originalToggleBtn = document.getElementById('originalToggleBtn');
+
+        if (sidebarToggleBtn && categorySidebar && sidebarOverlay) {
+            sidebarToggleBtn.addEventListener('click', () => {
+                categorySidebar.classList.toggle('collapsed');
+                document.getElementById('hamburger-icon').classList.toggle('active');
+            });
+
+            sidebarOverlay.addEventListener('click', () => {
+                categorySidebar.classList.remove('collapsed');
+            });
+        }
+        
+        // 根据屏幕宽度显隐按钮的简单处理 (更健壮的方式是使用CSS媒体查询)
+        function handleResize() {
+            const isMobile = window.innerWidth <= 767;
+            if (sidebarToggleBtn) {
+                 sidebarToggleBtn.style.display = isMobile ? 'block' : 'none';
+            }
+            if (originalToggleBtn) {
+                originalToggleBtn.style.display = isMobile ? 'none' : 'flex'; // 假设原始按钮是flex布局
+            }
+            // 如果侧边栏在桌面端是打开的，在切换到移动端时确保它是关闭的
+            if (isMobile && categorySidebar && categorySidebar.classList.contains('collapsed')) {
+               // 可选：如果希望切换到移动视图时总是隐藏侧边栏
+               // categorySidebar.classList.remove('collapsed'); 
+            } else if (!isMobile && categorySidebar && !categorySidebar.classList.contains('collapsed')){
+                // 可选：如果希望切换到桌面视图时总是显示侧边栏（如果之前是固定的话）
+                // categorySidebar.classList.add('collapsed');
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize); // Initial check
+
+    </script>
+    <style>
+    </style>
+</body>
+</html>
